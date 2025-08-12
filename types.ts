@@ -102,3 +102,20 @@ export type GetWhitelistsResponse = {
 export type DeleteWhitelistRequest = {
   url: string;
 };
+
+export interface DBChainConfigItem {
+  chainId: string;
+  rpcTarget: string;
+  enabled: boolean;
+  wsTarget?: string;
+  isCustomNetwork?: boolean;
+  isTestnet?: boolean;
+  chainNamespace?: string;
+  displayName?: string;
+  blockExplorerUrl?: string;
+  ticker?: string;
+  tickerName?: string;
+  logo?: string;
+  decimals?: number;
+}
+export type DBChainConfig = Array<DBChainConfigItem>;
