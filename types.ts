@@ -74,14 +74,14 @@ export type Response<T> = {
     team_id: number;
   }
   
-  export type ChainConfig = {
+  export type ChainNamespace = {
     ID: number;
     chain_namespace: Chain;
     wallet_permission: boolean;
     project_id: string;
   }
-  export type GetChainConfigsResponse = {
-    chain_namespaces: ChainConfig[];
+  export type GetChainNamespacesResponse = {
+    chain_namespaces: ChainNamespace[];
   }
   
   export type CreateWhitelistRequest = {
