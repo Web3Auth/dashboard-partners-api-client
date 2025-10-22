@@ -70,12 +70,7 @@ async function createProject() {
     network: "testnet",
     // products: ["pnp", "core_kit", "safe_auth", etc],
     platform_types: ["web"],
-    chain_namespaces: [
-      {
-        chain_namespace: "evm",
-        wallet_permission: true,
-      },
-    ],
+    dapp_chain_namespaces: ["evm", "solana"],
     team_id: organizationId,
   };
   const signature = sign(method, url, JSON.stringify(data));

@@ -53,12 +53,7 @@ export type GetProjectsResponse = {
 export type CreateProjectRequest = {
   name: string;
   network: Network;
-  chain_namespaces: [
-    {
-      chain_namespace: Chain;
-      wallet_permission: boolean;
-    },
-  ];
+  dapp_chain_namespaces: string[];
   products?: string[];
   platform_types: PlatformType[];
   team_id: number;
@@ -67,16 +62,10 @@ export type CreateProjectResponse = {
   message: string;
   project_id: string;
 };
-export type ChainConfigRequest = {
-  id?: Number; //for updating an existing chain
-  chain_namespace: Chain;
-  wallet_permission?: boolean;
-  is_deleted?: boolean;
-};
 export type UpdateProjectRequest = {
   name: string;
   network: Network;
-  chain_namespaces?: ChainConfigRequest[];
+  dapp_chain_namespaces: string[];
   platform_types?: PlatformType[];
   team_id: number;
 };

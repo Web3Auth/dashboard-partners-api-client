@@ -17,7 +17,7 @@ const loadEnv = () => {
     throw new Error("PROJECT_ID is not set");
   }
   return env;
-}
+};
 
 loadEnv();
 
@@ -27,4 +27,4 @@ export default {
   privateKey: process.env.PRIVATE_KEY,
   organizationId: Number(process.env.ORGANIZATION_ID),
   projectId: process.env.PROJECT_ID,
-}
+};
