@@ -32,7 +32,7 @@ const sign = (method: string, url: string, data: string) => {
     Buffer.from(data, "utf8"),
   ]);
   const hash = keccak256(b);
-  const sig = ecsign(Buffer.from(hash), Buffer.from(privateKey, "hex"));
+  const sig = ecsign(Buffer.from(hash), Buffer.from(privateKey || "", "hex"));
   return toRpcSig(sig.v, sig.r, sig.s);
 };
 
@@ -129,12 +129,7 @@ async function updateProject() {
   const data: UpdateProjectRequest = {
     name: "test-partner-api9",
     network: "testnet",
-    chain_namespaces: [
-      // { id: 37, chain_namespace: "evm", wallet_permission: true }, // id is defined: update chain config
-      // for DELETE chain namespace you need to pass in id of the chain namespace, chain namespace and is_deleted: true
-      // { id: 37, chain_namespace: "evm", is_deleted: true },
-      { chain_namespace: "solana", wallet_permission: true }, // id not defined: add new
-    ],
+    dapp_chain_namespaces: ["evm", "solana"],
     // to update platform types
     // platform_types: ["web"],
     team_id: organizationId,
